@@ -5,6 +5,9 @@ import main_state
 
 name = "PauseState"
 image = None
+rand = 0
+
+
 
 
 def enter():
@@ -29,9 +32,18 @@ def handle_events():
 
 
 def draw():
+    global rand
+
     clear_canvas()
-    image.draw(400, 300, 200, 200)
+    main_state.boy.draw()
+    main_state.grass.draw()
+    rand += 1
+    if (rand % 2) == 0:
+        image.draw(400,300,200,200)
+        delay(0.1)
+    delay(0.1)
     update_canvas()
+
 
 def update():
     pass
